@@ -10,6 +10,6 @@ number = int(input('Введите цифру, обозначающую день
 if number < 1 or number > 7:
     print('Попробуйте снова и введите цифру от 1 до 7')
 elif number > 5:
-    print('Это выходной!')
+    print('да')
 else:
-    print('Это не выходной')
+    print('нет')
