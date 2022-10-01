@@ -6,6 +6,7 @@ n = int(input("Введите количество чисел в списке: "
 sum = 0
 sp = list()
 
+
 for i in range(1, n + 1):
     sum += (1+ 1/n )**n 
     i += i
