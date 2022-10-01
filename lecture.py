@@ -1,6 +1,3 @@
-
-
-
 from operator import inv
 
 
@@ -165,7 +162,8 @@ print("helo world")
 #     print(c)
 
 
-# text = 'съешь ещё этих мягких французских булок' print(text[0])   # c 
+# text = 'съешь ещё этих мягких французских булок' 
+# print(text[0])   # c 
 # print(text[1])   # ъ 
 # print(text[len(text)-1])  # к 
 # print(text[-5])  # б 
@@ -178,6 +176,19 @@ print("helo world")
 # print(text[0:len(text):6])  # сеикакл 
 # print(text[::6])  # сеикакл 
 # text = text[2:9] + text[-5] + text[:2] # ...
+
+# # -8 -7 -6 -5 -4 -3 -2 -1
+# # 0 1 2 3 4 5 6 7
+# sp = [11, 20, 43, 74, 95, 6, 7, 8]
+# print(sp[1:]) # кроме первого
+# print(sp[:-1]) # от начала до последнего
+# print(sp[::2]) # все четные индексы
+# print(sp[1::2]) # все нечетные индексы
+# print(sp[::-1]) # перевернутый
+# print(sp[-3: len(sp)]) # последние 3
+# print(sp[-3:]) # последние 3
+# print(type(sp[-5:-1]))
+# print(type(sp[6]))
 
 
 # Списки: введение
