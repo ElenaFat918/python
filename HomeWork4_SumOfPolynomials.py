@@ -1,24 +1,62 @@
-# Задача №4. Задана натуральная степень k. Сформировать случайным образом список
-# коэффициентов (значения от 0 до 100) многочлена и записать в файл многочлен
-# степени k.
+# Задача №5. Даны два файла, в каждом из которых находится запись многочлена. Задача -
+# сформировать файл, содержащий сумму многочленов.
+import re
+print('Программа, формирующая файл, содержащий сумму многочленов')
 
-# Пример:   k=2 => 2x² + 4x + 5 = 0 или x² + 5 = 0 или 10*x² = 0
+with open ('polynomialFirst.txt','r') as data:
+    polynomialFirst = data.readline()
+print(f"Первый многочлен {polynomialFirst}") #  84x^2+11x^1+87x^0
+
+with open('polynomialSecond.txt', 'r') as data:
+    polynomialSecond = data.readline()
+print(f"Второй многочлен {polynomialSecond}") # 27x^3+13x^2+82x^1+97x^0
 
 
-print('Программа, формирующая случайный список коэффициентов многочлена и записывающая в файл многочлен степени k')
-k = int(input('Введите натуральную степень k '))
-sp = []
+for i in polynomialFirst:                      
+    degreeFirst = polynomialFirst.count('+')
+print('Степень первого многочлена', degreeFirst)
 
-import random
+for i in polynomialSecond:                      
+    degreeSecond = polynomialSecond.count('+')
+print('Степень второго многочлена', degreeSecond)
 
-for i in range(0, k+1):
-    i = random.randint(0, 100)
-    sp.append(i)
-print('Получился следующий список коэффициентов многочлена: ', sp)
-x = 'x'
-Polynomial = []
-for i in sp:
-    for i in range(k, 0):
-        i = str[i] + str(x**k)
-        Polynomial.append(i)
-print(Polynomial)
+def selectKoef(polynomial):
+    list = re.findall('[0-9]+', polynomial) # нашли все числа с 0 до 9 в polynomial
+    list = [int(i) for i in list]   # список строк переводим в список целых чисел
+    listKoef = []
+    for i in range(0, len(list), 2):    #записываем коэффициенты  с четным индексом
+        listKoef.append(list[i])
+    return listKoef
+
+koefFirst = selectKoef(polynomialFirst)
+print('Список коэффициентов первого многочлена:', koefFirst)
+
+koefSecond = selectKoef(polynomialSecond)
+print('Список коэффициентов второго многочлена:',koefSecond)
+
+if degreeFirst > degreeSecond:
+    maxDegree = degreeFirst #   максимальная степень в многочленах
+    for i in range(degreeFirst - degreeSecond):
+        koefSecond.insert(i, 0)
+else:
+    maxDegree = degreeSecond
+    for i in range(degreeSecond - degreeFirst):
+        koefFirst.insert(i, 0)
+print('Списки тождественных по размеру коэффициентов многочленов:', koefFirst, koefSecond)
+
+sumKoef = []
+for i in range(len(koefFirst)):
+    sumKoef.append(koefFirst[i] + koefSecond[i])
+print('Список суммы коэфициентов многочленов:', sumKoef)
+
+x = 'x' 
+member = []
+for i in sumKoef: 
+    i = str(i) + str(x) + '^' + str(maxDegree) #Переводим коэффициет в строку и соединяем его с х^k в один элемент i
+    member.append(i) 
+    maxDegree -= 1
+sumPolynomial = '+'.join(member)    #Слияние элементов в строку
+print('Сумма многочленов:', sumPolynomial)
+
+with open('SumPolinomials.txt', 'w') as data:
+    data.write(sumPolynomial)
