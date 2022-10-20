@@ -9,15 +9,21 @@ print('Поиск произведения пар чисел из списка')
 sp = [int (i) for i in ((input ("Введите значения через пробел "))).split()]
 print (sp)
 
-spS = []
+# spS = []
 
-if len(sp) % 2 == 0:
-    for i in range(0, (len(sp))//2):   
-        product = sp[i] * sp[-i-1]
-        spS.append(product)
-    print(spS)
-else:
-    for i in range(0, (len(sp) + 1) // 2):   
-        product = sp[i] * sp[-i-1]
-        spS.append(product)
-    print(spS)
+# if len(sp) % 2 == 0:
+#     for i in range(0, (len(sp))//2):   
+#         product = sp[i] * sp[-i-1]
+#         spS.append(product)
+#     print(spS)
+# else:
+#     for i in range(0, (len(sp) + 1) // 2):   
+#         product = sp[i] * sp[-i-1]
+#         spS.append(product)
+#     print(spS)
+def listProductPairs(sp):
+    sqrt = []
+    for i in range((len(sp) + 1) // 2):
+        sqrt.append(sp[i] * sp[len(sp) - 1 - i])
+        return sqrt
+print(listProductPairs(sp))
