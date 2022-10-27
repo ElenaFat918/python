@@ -23,6 +23,12 @@
 # N = int(input())
 # for i in range(N, -1) : 
 #     print(i[N:-N])
+# sp = []
+
+# for i in range(-N,N):
+#     sp.append(i)
+# print(sp)
+
 
 # N = int(input('Введите число '))
 # out = ''
