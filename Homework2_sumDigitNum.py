@@ -20,3 +20,4 @@ def sumDigit(a):
             result += int(i)
     return result
 print(sumDigit(a)) # В С# писали (f'Сумма чисел равна {result(a)}')
+

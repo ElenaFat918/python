@@ -8,9 +8,9 @@ sp = list()
 
 
 for i in range(1, n + 1):
-    sum += (1+ 1/n )**n 
+    sum += (1+ 1/i )**i 
     i += i
-    sp.append(round((1+ 1/n )**n, 2))
+    sp.append(round((1+ 1/i )**i, 2))
 print(sp)
 
 

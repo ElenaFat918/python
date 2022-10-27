@@ -23,6 +23,6 @@ path = 'file.txt'
 data = open(path, 'r')   
 for line in data:
     product *= sp[int(line)]
-    print("Элемент на позиции f'{line} = ", sp[int(line)])
+    print(f"Элемент на позиции {line} = ", sp[int(line)])
 data.close()
-print("Произведение элементов на позициях f'{line} = ", product)
+print(f"Произведение элементов на позициях {line} = ", product)
