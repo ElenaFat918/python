@@ -8,7 +8,8 @@
 # sp = [int(i) for i in input('Введите числа через пробел: ').split()]
 # print(sp)
 
-# res = list(filter(lambda x: 9 < x < 100, sp))
+# res = list(filter(lambda x: 9 < x < 100, sp)) 
+# res = list(filter(lambda x: len(str(x)) == 2, sp)) #  альтернативное решение
 # print(res)
 
 # ___________________________________________________________________
@@ -21,6 +22,8 @@
 # a = ('1','a','b','2','3','c')
 # b = list(filter(lambda x: x == 'a' or x == 'b' or x =='c', a))
 # c = list(filter(lambda x: x == '1' or x =='2' or x =='3', a))
+# b = list(filter(lambda x: x.isalpha(), a))    #   альтернативное
+# c = list(filter(lambda x: x.isalpha(), a))
 # print(b)
 # print(c)
 # print([i for i in a if i.isdigit()])
@@ -46,6 +49,9 @@
 # salary = [111,222,333]
 # # data = list(zip(users, ids, salary))
 # # print(data)
+# # users, ids, salary = zip(*data)
+# # users, ids, salary = list(users), list(ids), list(salary)
+# # print(users, ids, salary)
 # temp = [list(i) for i in zip(users, ids, salary)]
 # print(temp)
 # print(list(zip(*temp)))
@@ -105,3 +111,16 @@
 #             dic[k] = i
 # for k, v in sorted(dic.items()):
 #     print(f'{v} - {k}')
+
+    # альтернативное решение
+text = open('6-4.txt', 'r', encoding='utf-8')
+lst = list(text.read().split())
+text.close()
+dic = dict(enumerate(lst))
+dic2 = {}
+for i in dic.keys():
+    if dic[i].strip(".") not in dic2.values():
+        if dic[i].istitle(): dic2[i] =  dic[i]
+print(dic2)
+a = (sorted(dic2.items(), key=lambda x: x[1]))
+print(*a)
